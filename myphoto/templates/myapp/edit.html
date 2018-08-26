@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑图片信息</title>
+</head>
+<body>
+    <center>
+        {% include 'myapp/menu.html' %}
+        <h3>编辑图片信息</h3>
+        <form action="{% url 'updatephoto' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{photo.id}}"/>
+            <table width="280" border="0">
+               <tr>
+                 <td>名称：</td>
+                 <td><input type="text" name="name" value="{{photo.title}}" /></td>
+               </tr>
+               <tr>
+                 <td colspan="2" align="center">
+                    <input type="submit" value="修改"/>
+                    <input type="reset" value="重置"/>
+                 </td>
+        </form>   
+    </center>
+</body>
+</html>
